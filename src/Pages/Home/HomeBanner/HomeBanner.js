@@ -1,14 +1,15 @@
 import React from "react";
+import bg from "../../../assets/background/bg-2.jpg";
 
 const HomeBanner = () => {
   return (
     <div
       className="hero h-96"
       style={{
-        backgroundImage: `url("https://quanticalabs.com/CleanMate/Template/images/samples/370x246/image_10.jpg")`,
+        backgroundImage: `url(${bg})`,
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-30"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
