@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.background-img{
+  background-image: url(../src/assets/background/bg.png);
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

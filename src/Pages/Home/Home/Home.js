@@ -1,9 +1,12 @@
 import React from "react";
+import HomeBanner from "../HomeBanner/HomeBanner";
+import Services from "./Services/Services";
 
 const Home = () => {
   return (
-    <div>
-      <h3>this is home</h3>
+    <div className="max-w-screen-lg mx-auto ">
+      <HomeBanner></HomeBanner>
+      <Services></Services>
     </div>
   );
 };

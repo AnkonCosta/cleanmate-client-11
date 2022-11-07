@@ -5,7 +5,7 @@ import router from "./router/Routes/Routes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="background-img pb-12">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
