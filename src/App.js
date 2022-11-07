@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/Routes/Routes";
 
 function App() {
   return (
-    <div className="background-img pb-12">
+    <div className="background-img pb-12 ">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
