@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../src/assets/logo/clean.png";
 import Swal from "sweetalert2";
+import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
@@ -20,7 +21,10 @@ const Register = () => {
         console.log(user);
         Swal.fire("Congratulations!", "User created successfully.", "success");
       })
-      .then((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -155,6 +159,7 @@ const Register = () => {
           </div>
         </div>
       </section>
+      <Toaster></Toaster>
     </div>
   );
 };
