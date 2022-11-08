@@ -10,6 +10,7 @@ const ReviewField = ({ service, user }) => {
     const email = user?.email;
     const displayName = user?.displayName;
     const serviceId = service?._id;
+
     const review = {
       comment,
       email,
@@ -41,7 +42,7 @@ const ReviewField = ({ service, user }) => {
       <div className="max-w-lg shadow-md">
         <form onSubmit={handleAddReview} className="w-full p-4">
           <div className="mb-2">
-            <label for="comment" className="text-lg text-gray-600">
+            <label htmlFor="comment" className="text-lg text-gray-600">
               Add Review
             </label>
             <textarea
@@ -54,7 +55,7 @@ const ReviewField = ({ service, user }) => {
             Review
           </button>
         </form>
-        <Toaster></Toaster>
+        <Toaster position="top-left" reverseOrder={false}></Toaster>
       </div>
     </div>
   );

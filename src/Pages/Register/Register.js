@@ -7,7 +7,8 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, googleLogin, updateUserProfile } =
+    useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +21,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        handleUpdateUserProfile(name, photoURL);
         Swal.fire("Congratulations!", "User created successfully.", "success");
       })
       .catch((err) => {
@@ -34,6 +36,17 @@ const Register = () => {
         console.log(user);
         Navigate("/");
       })
+      .catch((err) => console.log(err));
+  };
+
+  // updateUserProfile
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then((result) => {})
       .catch((err) => console.log(err));
   };
   return (

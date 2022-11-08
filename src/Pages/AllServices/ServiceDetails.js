@@ -9,6 +9,8 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const { img, title, description, _id, price, more } = service;
 
+  console.log(service);
+
   return (
     <div className="bg-white max-w-screen-lg mx-auto">
       <div
@@ -71,7 +73,7 @@ const ServiceDetails = () => {
             )}
           </div>
           <div>
-            <ReviewCard></ReviewCard>
+            <ReviewCard key={service._id} service={service}></ReviewCard>
           </div>
         </div>
       </section>

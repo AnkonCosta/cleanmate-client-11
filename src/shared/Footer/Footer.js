@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../../../src/assets/logo/clean.png";
+import { Link } from "react-router-dom";
+import logo from "../../../src/assets/logo/logo2.png";
 
 const Footer = () => {
   return (
@@ -10,50 +11,50 @@ const Footer = () => {
           <p className="text-xl text-white">
             CleanMate
             <br />
-            Providing reliable tech since 1992
+            Providing reliable cleaning since 2017
           </p>
         </div>
         <div>
           <span className="font-bold text-white text-xl">Services</span>
-          <a href=" " className="text-white font-light">
+          <Link to="/" className="text-white font-light">
             Branding
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Design
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Marketing
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Advertisement
-          </a>
+          </Link>
         </div>
         <div>
           <span className="font-bold text-white text-xl">Company</span>
-          <a href=" " className="text-white font-light">
+          <Link to="/" className="text-white font-light">
             About us
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Contact
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Jobs
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Press kit
-          </a>
+          </Link>
         </div>
         <div>
           <span className="font-bold text-white text-xl">Legal</span>
-          <a href=" " className="text-white font-light">
+          <Link to="/" className="text-white font-light">
             Terms of use
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Privacy policy
-          </a>
-          <a href=" " className="text-white font-light">
+          </Link>
+          <Link to="/" className="text-white font-light">
             Cookie policy
-          </a>
+          </Link>
         </div>
       </footer>
     </div>
