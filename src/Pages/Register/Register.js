@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import logo from "../../../src/assets/logo/clean.png";
 import Swal from "sweetalert2";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleLogin } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,7 +27,15 @@ const Register = () => {
         toast.error(err.message);
       });
   };
-
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="max-w-screen-lg  mx-auto ">
       <section className="bg-gray-50 dark:bg-gray-900  py-12">
@@ -141,7 +150,13 @@ const Register = () => {
                     Forgot password?
                   </a>
                 </div>
-
+                <p
+                  onClick={handleGoogleSignIn}
+                  type="submit"
+                  className="w-full btn bg-white hover:bg-white text-black border border-green-600 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                >
+                  <FaGoogle className="mr-5 text-xl" /> Login with Google
+                </p>
                 <button
                   type="submit"
                   className="w-full text-black border border-green-600 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"

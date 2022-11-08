@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bg from "../../../assets/background/bg-2.jpg";
 
 const HomeBanner = () => {
@@ -12,13 +13,19 @@ const HomeBanner = () => {
       <div className="hero-overlay bg-opacity-30"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-          <p className="mb-5">
+          <h1 className="mb-5 text-4xl font-semibold">
+            ESTIMATE TOTAL COSTS OF HOUSE CLEANING
+          </h1>
+          <p className="mb-5 ">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link>
+            <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+              Services
+            </button>
+          </Link>
         </div>
       </div>
     </div>

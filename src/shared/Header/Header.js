@@ -6,7 +6,7 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const menuItems = (
-    <li className="font-semibold">
+    <li className="font-semibold  ">
       <Link to="/">Home</Link>
       <Link to="/services">Services</Link>
       <Link to="/blog">Blog</Link>
@@ -60,7 +60,11 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Appointment</button>
+        <Link>
+          <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+            Contact
+          </button>
+        </Link>
       </div>
     </div>
   );

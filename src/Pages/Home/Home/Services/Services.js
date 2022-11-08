@@ -11,7 +11,7 @@ const Services = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="service-section-bg  pt-8">
+    <div className="service-section-bg  py-8">
       <h1 className="text-3xl text-center font-bold">OUR CLEANING SERVICES</h1>
       <p className="text-sm text-center font-semibold mt-4">
         Do you wish you had more free time? We can make it happen!
@@ -24,7 +24,9 @@ const Services = () => {
       </div>
       <div className="text-center">
         <Link to="/services">
-          <button className="btn btn-outline btn-primary">See All</button>
+          <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+            See All
+          </button>
         </Link>
       </div>
     </div>

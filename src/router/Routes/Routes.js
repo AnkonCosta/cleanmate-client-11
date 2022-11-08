@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
 import AllServices from "../../Pages/AllServices/AllServices";
 import ServiceDetails from "../../Pages/AllServices/ServiceDetails";
+import FourOFour from "../../Pages/FourOFour/FourOFour";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+
       {
         path: "/login",
         element: <Login></Login>,
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         element: <ServiceDetails></ServiceDetails>,
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <FourOFour></FourOFour>,
   },
 ]);
 
