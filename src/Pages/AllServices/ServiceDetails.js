@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import ReviewCard from "./ReviewCard";
@@ -8,6 +8,7 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
   const { img, title, description, _id, price, more } = service;
+
   return (
     <div className="bg-white max-w-screen-lg mx-auto">
       <div
@@ -56,10 +57,10 @@ const ServiceDetails = () => {
 
       {/* another section  */}
       <section className="shadow-lg py-5">
-        <div className="grid grid-cols-2 items-center content-center">
-          <div>
+        <div className="grid md:grid-cols-2 gap-5 items-start content-center">
+          <div className="md:sticky pb-4 top-10  ">
             {user?.uid ? (
-              <ReviewField></ReviewField>
+              <ReviewField service={service} user={user}></ReviewField>
             ) : (
               <p className="font-bold p-4 text-red-600">
                 Please login first to add review.

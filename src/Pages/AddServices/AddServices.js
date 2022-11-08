@@ -32,10 +32,10 @@ const AddServices = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        Swal.fire("Congratulations!", "User created successfully.", "success");
+        Swal.fire("Done", "Service Added successfully.", "success");
         form.reset();
       })
-      .catch((err) => toast.error(`${err}`));
+      .catch((err) => toast.error(`${err.message}`));
   };
 
   return (

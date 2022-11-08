@@ -1,17 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import ReviewCard from "./ReviewCard";
 
-const ReviewField = () => {
+const ReviewField = ({ service, user }) => {
+  const handleAddReview = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const comment = form.review.value;
+    const email = user?.email;
+    const displayName = user?.displayName;
+    const serviceId = service?._id;
+    const review = {
+      comment,
+      email,
+      serviceId,
+      displayName,
+    };
+
+    // post to server
+    fetch(`http://localhost:5000/reviews`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Review added successfully.");
+        }
+        // form.reset();
+      })
+      .catch((err) => toast.error(`${err.message}`));
+  };
+
   return (
     <div>
       <div className="max-w-lg shadow-md">
-        <form onSubmit={(e) => e.preventDefault()} className="w-full p-4">
+        <form onSubmit={handleAddReview} className="w-full p-4">
           <div className="mb-2">
             <label for="comment" className="text-lg text-gray-600">
               Add Review
             </label>
             <textarea
               className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
-              name="comment"
+              name="review"
               placeholder="The service is ...."
             ></textarea>
           </div>
@@ -19,6 +54,7 @@ const ReviewField = () => {
             Review
           </button>
         </form>
+        <Toaster></Toaster>
       </div>
     </div>
   );
