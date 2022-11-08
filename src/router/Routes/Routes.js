@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
+import AddServices from "../../Pages/AddServices/AddServices";
 import AllServices from "../../Pages/AllServices/AllServices";
 import ServiceDetails from "../../Pages/AllServices/ServiceDetails";
 import FourOFour from "../../Pages/FourOFour/FourOFour";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/add",
+        element: <AddServices></AddServices>,
       },
       {
         path: "/services",

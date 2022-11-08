@@ -10,16 +10,10 @@ const Header = () => {
       <Link to="/">Home</Link>
       <Link to="/services">Services</Link>
       <Link to="/blog">Blog</Link>
-      {user?.uid ? (
+      {user?.uid && (
         <>
-          <Link>Add Service</Link>
+          <Link to="/add">Add Service</Link>
           <Link> My Reviews</Link>
-          <Link onClick={logOut}> Log Out</Link>
-        </>
-      ) : (
-        <>
-          <Link to="/login">Log In</Link>
-          <Link to="/register">Register</Link>
         </>
       )}
     </li>
@@ -60,11 +54,19 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link>
-          <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
-            Contact
-          </button>
-        </Link>
+        {user?.uid ? (
+          <Link onClick={logOut}>
+            <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+              Log Out
+            </button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+              Log In
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

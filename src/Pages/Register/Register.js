@@ -37,9 +37,9 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="max-w-screen-lg  mx-auto ">
-      <section className="bg-gray-50 dark:bg-gray-900  py-12">
-        <div className="flex flex-col items-center py-12 my-12 justify-center px-6  mx-auto md:h-screen lg:py-0">
+    <div className="max-w-screen-lg  bg-white mx-auto ">
+      <section className="bg-gray-50  dark:bg-gray-900  py-12">
+        <div className="flex flex-col items-center py-12  justify-center px-6  mx-auto  lg:py-0">
           <a
             href=" "
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -165,7 +165,7 @@ const Register = () => {
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account ?{" "}
-                  <Link className="text-green-600 font-semibold" to="/login">
+                  <Link className="text-green-600  font-semibold" to="/login">
                     Login
                   </Link>
                 </p>
