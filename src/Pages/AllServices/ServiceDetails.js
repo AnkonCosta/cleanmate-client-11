@@ -73,7 +73,7 @@ const ServiceDetails = () => {
             )}
           </div>
           <div>
-            <ReviewCard key={service._id} service={service}></ReviewCard>
+            <ReviewCard service={service}></ReviewCard>
           </div>
         </div>
       </section>

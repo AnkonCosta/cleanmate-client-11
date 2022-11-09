@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const MyReviewCard = ({ review }) => {
+const MyReviewCard = ({ review, handleDelete }) => {
   const [service, setService] = useState({});
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const MyReviewCard = ({ review }) => {
   }, [review.serviceId]);
   return (
     <div>
-      <div className="">
+      <div>
         <div className="">
           <div className="flex justify-center relative top-1/3">
             {/* <!-- This is an example component --> */}
@@ -36,6 +36,15 @@ const MyReviewCard = ({ review }) => {
                 </div>
               </div>
               <p className="-mt-4 text-gray-500">{review?.comment}</p>
+              <div className="card-actions justify-end">
+                <div className="badge badge-outline">Edit</div>
+                <div
+                  onClick={() => handleDelete(review._id)}
+                  className="badge badge-outline"
+                >
+                  Delete
+                </div>
+              </div>
             </div>
           </div>
         </div>

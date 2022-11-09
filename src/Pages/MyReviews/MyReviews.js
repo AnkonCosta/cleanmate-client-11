@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import MyReviewCard from "./MyReviewCard";
@@ -18,6 +19,25 @@ const MyReviews = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
+  // delete
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure want to cancel this order?");
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount === 1) {
+            toast.success("Deleted Successfully.");
+            const remaining = reviews.filter((rvw) => rvw._id !== id);
+            setReviews(remaining);
+          }
+        });
+    }
+  };
+
   return (
     <div className="max-w-screen-lg pb-10 bg-white mx-auto ">
       <div>
@@ -26,7 +46,11 @@ const MyReviews = () => {
       {reviews.length !== 0 ? (
         <div className="grid md:grid-cols-2 gap-5 p-5">
           {reviews.map((review) => (
-            <MyReviewCard key={review._id} review={review}></MyReviewCard>
+            <MyReviewCard
+              key={review._id}
+              handleDelete={handleDelete}
+              review={review}
+            ></MyReviewCard>
           ))}
         </div>
       ) : (
@@ -38,6 +62,7 @@ const MyReviews = () => {
           </div>
         </>
       )}
+      <Toaster />
     </div>
   );
 };

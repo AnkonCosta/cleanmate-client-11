@@ -3,6 +3,7 @@ import Main from "../../Layouts/Main";
 import AddServices from "../../Pages/AddServices/AddServices";
 import AllServices from "../../Pages/AllServices/AllServices";
 import ServiceDetails from "../../Pages/AllServices/ServiceDetails";
+import Blog from "../../Pages/Blog/Blog";
 import FourOFour from "../../Pages/FourOFour/FourOFour";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -17,12 +18,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home title="home"></Home>,
+        element: <Home></Home>,
       },
 
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/register",

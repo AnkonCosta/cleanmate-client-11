@@ -4,7 +4,6 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 const ReviewCard = ({ service }) => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(service._id);
   // load reviews data
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?serviceId=${service?._id}`)
@@ -18,7 +17,6 @@ const ReviewCard = ({ service }) => {
     <div className="">
       {reviews.length !== 0 ? (
         <>
-          {" "}
           {reviews.map((review) => (
             <div
               key={review._id}

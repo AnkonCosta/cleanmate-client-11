@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../src/assets/logo/logo2.png";
+import me from "../../../src/assets/logo/me.png";
 
 const Footer = () => {
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <footer className="footer p-10 bg-green-900 text-base-content">
+    <div className="max-w-screen-lg mx-auto  bg-green-900">
+      <footer className="footer p-10 text-base-content">
         <div>
           <img className="" src={logo} alt="" />
           <p className="text-xl text-white">
@@ -57,6 +58,19 @@ const Footer = () => {
           </Link>
         </div>
       </footer>
+      <p className="text-center text-white py-5">
+        <code>
+          All rights reserved by{" "}
+          <a
+            className="tooltip"
+            data-tip="Redirect to LinkedIn Profile"
+            href="https://www.linkedin.com/in/ankoncosta/"
+            target="_blank"
+          >
+            Ankon Costa
+          </a>
+        </code>
+      </p>
     </div>
   );
 };
