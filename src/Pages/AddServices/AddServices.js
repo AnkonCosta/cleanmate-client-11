@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const AddServices = () => {
+  document.title = " Add Service";
   const { user } = useContext(AuthContext);
   const handleAddService = (e) => {
     e.preventDefault();

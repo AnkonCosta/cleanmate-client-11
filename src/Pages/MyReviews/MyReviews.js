@@ -5,19 +5,33 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import MyReviewCard from "./MyReviewCard";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  document.title = " My Reviews";
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
-  console.log(user.email);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setReviews(data);
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("serviceToken")}`,
+      },
+    })
+      // .then((res) => {
+      //   // if (res.status === 401 || res.send === 403) {
+      //   //   logOut();
+      //   // }
+      //   res.json();
+      // })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
       })
-      .catch((err) => console.log(err));
-  }, [user?.email]);
+      .then((data) => {
+        setReviews(data);
+        console.log(data);
+      });
+  }, [user?.email, logOut]);
 
   // delete
   const handleDelete = (id) => {
@@ -43,7 +57,7 @@ const MyReviews = () => {
       <div>
         <h1 className="font-bold font-serif p-5">/Reviews</h1>
       </div>
-      {reviews.length !== 0 ? (
+      {reviews?.length !== 0 ? (
         <div className="grid md:grid-cols-2 gap-5 p-5">
           {reviews.map((review) => (
             <MyReviewCard

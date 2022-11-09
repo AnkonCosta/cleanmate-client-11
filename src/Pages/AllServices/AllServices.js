@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "../Home/Home/Services/ServiceCard";
 
 const AllServices = () => {
+  document.title = " Services";
   const services = useLoaderData();
+
   return (
     <div className="max-w-screen-lg mx-auto bg-white ">
       <h1 className="text-xl font-serif font-bold mx-5">/Services/</h1>

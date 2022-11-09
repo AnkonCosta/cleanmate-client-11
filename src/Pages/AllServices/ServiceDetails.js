@@ -8,6 +8,7 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
   const { img, title, description, _id, price, more } = service;
+  document.title = `${title}`;
 
   console.log(service);
 

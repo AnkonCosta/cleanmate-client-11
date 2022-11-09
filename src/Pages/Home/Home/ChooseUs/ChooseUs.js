@@ -9,16 +9,16 @@ const ChooseUs = () => {
         Cleanmate operates in Ottawa and provides a variety of cleaning <br />
         services. Choose us because of our reputation for excellence
       </p>
-      <div className="grid grid-cols-3 justify-evenly items-center">
+      <div className="grid md:grid-cols-3 justify-evenly items-center">
         <div>
-          <div className="text-end  my-10 mx-5">
+          <div className="md:text-end  my-10 mx-5">
             <h1 className="text-xl font-bold mb-3">SPARKLING CLEAN</h1>
             <p className="font-serif">
               We keep your home sparkling clean and germ free. Our disinfecting
               process kills 99% of common bacteria and viruses.
             </p>
           </div>
-          <div className="text-end  my-10 mx-5">
+          <div className="md:text-end  my-10 mx-5">
             <h1 className="text-xl font-bold mb-3">LEADING TECHNOLOGIES</h1>
             <p className="font-serif">
               We use safe hospital-grade disinfectants, HEPA filtrations and

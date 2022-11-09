@@ -5,6 +5,7 @@ import ChooseUs from "./ChooseUs/ChooseUs";
 import Services from "./Services/Services";
 
 const Home = () => {
+  document.title = "Home";
   return (
     <div className="max-w-screen-lg mx-auto ">
       <HomeBanner></HomeBanner>

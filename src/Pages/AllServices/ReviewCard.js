@@ -6,12 +6,12 @@ const ReviewCard = ({ service }) => {
   const { user } = useContext(AuthContext);
   // load reviews data
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceId=${service?._id}`)
+    fetch(`http://localhost:5000/service/reviews?serviceId=${service?._id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
       });
-  }, [service?._id]);
+  });
 
   return (
     <div className="">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import UpdateModal from "./UpdateModal";
 
 const MyReviewCard = ({ review, handleDelete }) => {
   const [service, setService] = useState({});
@@ -36,8 +37,9 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 </div>
               </div>
               <p className="-mt-4 text-gray-500">{review?.comment}</p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">Edit</div>
+              <div className="card-actions items-center justify-end">
+                {/* <div className="badge badge-outline">Edit</div> */}
+                <UpdateModal></UpdateModal>
                 <div
                   onClick={() => handleDelete(review._id)}
                   className="badge badge-outline"
