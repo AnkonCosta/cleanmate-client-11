@@ -16,6 +16,7 @@ const ReviewField = ({ service, user }) => {
       email,
       serviceId,
       displayName,
+      img: user?.photoURL,
     };
 
     // post to server

@@ -53,13 +53,21 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
+
       <div className="navbar-end">
         {user?.uid ? (
-          <Link onClick={logOut}>
-            <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
-              Log Out
-            </button>
-          </Link>
+          <>
+            <label className="btn mx-5 btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL} alt="User Profile" />
+              </div>
+            </label>
+            <Link onClick={logOut}>
+              <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
+                Log Out
+              </button>
+            </Link>
+          </>
         ) : (
           <Link to="/login">
             <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
