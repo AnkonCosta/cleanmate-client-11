@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import UpdateModal from "./UpdateModal";
 
 const MyReviewCard = ({ review, handleDelete }) => {
@@ -8,7 +9,6 @@ const MyReviewCard = ({ review, handleDelete }) => {
     fetch(`http://localhost:5000/services/${review.serviceId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setService(data);
       });
   }, [review.serviceId]);
@@ -38,8 +38,10 @@ const MyReviewCard = ({ review, handleDelete }) => {
               </div>
               <p className="-mt-4 text-gray-500">{review?.comment}</p>
               <div className="card-actions items-center justify-end">
-                {/* <div className="badge badge-outline">Edit</div> */}
-                <UpdateModal></UpdateModal>
+                <Link to={`/update/${review._id}`}>
+                  <div className="badge badge-outline">Edit</div>
+                </Link>
+                {/* <UpdateModal onClick={`/reviews/${review._id}`}></UpdateModal> */}
                 <div
                   onClick={() => handleDelete(review._id)}
                   className="badge badge-outline"

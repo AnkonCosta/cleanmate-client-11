@@ -15,12 +15,6 @@ const MyReviews = () => {
         authorization: `Bearer ${localStorage.getItem("serviceToken")}`,
       },
     })
-      // .then((res) => {
-      //   // if (res.status === 401 || res.send === 403) {
-      //   //   logOut();
-      //   // }
-      //   res.json();
-      // })
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -29,7 +23,6 @@ const MyReviews = () => {
       })
       .then((data) => {
         setReviews(data);
-        console.log(data);
       });
   }, [user?.email, logOut]);
 

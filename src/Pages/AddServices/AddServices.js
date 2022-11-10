@@ -95,7 +95,7 @@ const AddServices = () => {
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="country"
+                        htmlFor="country"
                         className="block text-sm font-medium text-gray-700"
                       >
                         PhotoURL
