@@ -2,11 +2,13 @@ import "./App.css";
 import { RouterProvider, useLocation } from "react-router-dom";
 import router from "./router/Routes/Routes";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="background-img   pb-12 ">
       <RouterProvider router={router}></RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }

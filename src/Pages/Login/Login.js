@@ -6,7 +6,7 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { logIn, googleLogin, loading } = useContext(AuthContext);
+  const { logIn, googleLogin, loading, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -50,9 +50,11 @@ const Login = () => {
             navigate(from, { replace: true });
           });
       })
-      .catch((err) => {
-        console.log(err);
-        toast.error(err.message);
+      .catch((error) => {
+        console.log(error);
+        const errorMessage = error.message;
+        setLoading(false);
+        toast.error(errorMessage);
       });
   };
   const handleGoogleSignIn = () => {
@@ -168,7 +170,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-      <Toaster></Toaster>
     </div>
   );
 };
