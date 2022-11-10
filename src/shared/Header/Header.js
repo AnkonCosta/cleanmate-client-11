@@ -51,7 +51,9 @@ const Header = () => {
           className=" flex mx-5 justify-center items-center normal-case text-xl"
         >
           <img src={logo} alt="" />
-          <p className="text-green-600 px-2 font-mono">CleanMate</p>
+          <p className="text-green-600 hidden md:block px-2 font-mono">
+            CleanMate
+          </p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
