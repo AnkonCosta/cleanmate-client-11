@@ -48,7 +48,10 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        Navigate("/");
+        Swal.fire("Congratulations!", "User created successfully.", "success");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };

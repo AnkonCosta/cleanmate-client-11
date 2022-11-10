@@ -41,7 +41,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
               <p className="-mt-4 text-gray-500">{review?.comment}</p>
               <div className="card-actions items-center justify-end">
                 <Link to={`/update/${review._id}`}>
-                  <div className="badge badge-outline">Edit</div>
+                  <div className="badge cursor-pointer badge-outline">Edit</div>
                 </Link>
 
                 <div

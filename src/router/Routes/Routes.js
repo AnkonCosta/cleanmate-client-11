@@ -60,8 +60,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        loader: () =>
-          fetch("https://service-review-server-blush.vercel.app/services"),
         element: <AllServices></AllServices>,
       },
       {
