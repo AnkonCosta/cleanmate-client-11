@@ -20,7 +20,7 @@ const Header = () => {
   );
 
   return (
-    <div className="h-20 max-w-screen-lg mx-auto py-12 px-5  navbar bg-base-100">
+    <div className="h-20  w-full md:w-full md:max-w-screen-lg mx-auto py-12 px-5  navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,8 +46,12 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className=" normal-case text-xl">
+        <Link
+          to="/"
+          className=" flex mx-5 justify-center items-center normal-case text-xl"
+        >
           <img src={logo} alt="" />
+          <p className="text-green-600 px-2 font-mono">CleanMate</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

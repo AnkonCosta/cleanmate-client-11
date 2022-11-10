@@ -13,7 +13,7 @@ const ServiceDetails = () => {
   console.log(service);
 
   return (
-    <div className="bg-white max-w-screen-lg mx-auto">
+    <div className="bg-white w-full md:max-w-screen-lg mx-auto">
       <div
         className="hero h-96"
         style={{

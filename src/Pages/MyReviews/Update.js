@@ -13,13 +13,16 @@ const Update = () => {
     e.preventDefault();
     console.log(review);
 
-    fetch(`http://localhost:5000/reviews/${storedReview?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      `https://service-review-server-blush.vercel.app/reviews/${storedReview?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount !== 0) {
@@ -37,7 +40,7 @@ const Update = () => {
     setReview(newReview);
   };
   return (
-    <div className="max-w-screen-lg mx-auto bg-white">
+    <div className="w-full md:max-w-screen-lg mx-auto bg-white">
       <Toaster></Toaster>
       <div className="max-w-lg shadow-md">
         <h1 className="text-xl font-semibold p-5">
@@ -48,6 +51,7 @@ const Update = () => {
           <label className="block mb-2">
             <span className="text-green-600 font-semibold">Update Review</span>
             <textarea
+              required
               onChange={handleInputChange}
               name="comment"
               defaultValue={storedReview?.comment}

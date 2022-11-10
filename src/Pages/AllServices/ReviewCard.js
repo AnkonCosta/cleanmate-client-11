@@ -6,7 +6,9 @@ const ReviewCard = ({ service }) => {
   const { user } = useContext(AuthContext);
   // load reviews data
   useEffect(() => {
-    fetch(`http://localhost:5000/service/reviews?serviceId=${service?._id}`)
+    fetch(
+      `https://service-review-server-blush.vercel.app/service/reviews?serviceId=${service?._id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -53,7 +55,7 @@ const ReviewCard = ({ service }) => {
         </>
       ) : (
         <>
-          <div className="max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
+          <div className="w-full md:max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
             <h2 className="flex text-green-500 font-bold text-xl justify-center">
               This service is not reviewed yet.
             </h2>

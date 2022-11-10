@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutServices = () => {
   return (
-    <div className="py-12 p-5 max-w-screen-lg bg-white">
+    <div className="py-12 p-5 w-full md:max-w-screen-lg bg-white">
       <div className="text-center my-12">
         <p className="text-2xl font-bold text-green-600">Speciality</p>
         <h2 className="text-5xl my-3 font-bold">Why This Service?</h2>
@@ -13,7 +13,7 @@ const AboutServices = () => {
           id nisi.
         </p>
       </div>
-      <div className="grid md:grid-cols-6 items-center justify-center gap-5 my-12 ">
+      <div className="grid grid-cols-2 md:grid-cols-6 items-center justify-center gap-5 my-12 ">
         <div className="border-2  rounded-lg  p-10">
           <h4 className="text-xl font-semibold mt-3">Expert Person</h4>
         </div>

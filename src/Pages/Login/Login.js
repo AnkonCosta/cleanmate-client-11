@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import logo from "../../../src/assets/logo/clean.png";
@@ -6,10 +6,19 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { logIn, googleLogin } = useContext(AuthContext);
+  const { logIn, googleLogin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  if (loading) {
+    return (
+      <div className="w-full md:max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
+        <button className="btn loading btn-outline border border-green-600">
+          loading....
+        </button>
+      </div>
+    );
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,7 +36,7 @@ const Login = () => {
 
         console.log(currentUser);
         // // get jwt token
-        fetch(`http://localhost:5000/jwt`, {
+        fetch(`https://service-review-server-blush.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -50,12 +59,13 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+
         navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div className="w-full md:max-w-screen-lg mx-auto">
       <section className="bg-gray-50 py-12 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 mb-8 mx-auto  lg:py-0">
           <a
@@ -77,7 +87,7 @@ const Login = () => {
               >
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Your email
@@ -88,12 +98,12 @@ const Login = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    required=""
+                    required
                   />
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Password
@@ -105,7 +115,7 @@ const Login = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    required
                   />
                 </div>
                 <div className="flex items-center justify-between">
@@ -121,7 +131,7 @@ const Login = () => {
                     </div>
                     <div className="ml-3 text-sm">
                       <label
-                        for="remember"
+                        htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
                         Remember me

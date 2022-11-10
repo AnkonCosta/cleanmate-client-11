@@ -7,7 +7,7 @@ import Services from "./Services/Services";
 const Home = () => {
   document.title = "Home";
   return (
-    <div className="max-w-screen-lg mx-auto ">
+    <div className="w-full md:max-w-screen-lg  mx-auto ">
       <HomeBanner></HomeBanner>
       <Services></Services>
       <ChooseUs></ChooseUs>

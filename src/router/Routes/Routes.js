@@ -38,7 +38,9 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(
+            `https://service-review-server-blush.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "/add",
@@ -58,13 +60,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch("https://service-review-server-blush.vercel.app/services"),
         element: <AllServices></AllServices>,
       },
       {
         path: "/services/:id",
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/services/${params.id}`);
+          return fetch(
+            `https://service-review-server-blush.vercel.app/services/${params.id}`
+          );
         },
         element: <ServiceDetails></ServiceDetails>,
       },

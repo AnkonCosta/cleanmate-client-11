@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 function App() {
   return (
-    <div className="background-img  pb-12 ">
+    <div className="background-img   pb-12 ">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

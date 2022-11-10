@@ -10,11 +10,14 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("serviceToken")}`,
-      },
-    })
+    fetch(
+      `https://service-review-server-blush.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("serviceToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -30,7 +33,7 @@ const MyReviews = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure want to cancel this order?");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://service-review-server-blush.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -46,7 +49,7 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="max-w-screen-lg pb-10 bg-white mx-auto ">
+    <div className="w-full md:max-w-screen-lg pb-10 bg-white mx-auto ">
       <div>
         <h1 className="font-bold font-serif p-5">/Reviews</h1>
       </div>
@@ -62,7 +65,7 @@ const MyReviews = () => {
         </div>
       ) : (
         <>
-          <div className="max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
+          <div className="w-full md:max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
             <h2 className="flex text-green-500 font-bold text-xl justify-center">
               No Reviews were added by you.
             </h2>

@@ -10,7 +10,7 @@ const HomeBanner = () => {
         backgroundImage: `url(${bg})`,
       }}
     >
-      <div className="hero-overlay bg-opacity-30"></div>
+      <div className="hero-overlay w-full bg-opacity-30"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <h1 className="mb-5 text-4xl font-semibold">
@@ -21,7 +21,7 @@ const HomeBanner = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <Link>
+          <Link to="/services">
             <button className="border font-semibold py-2 px-6 rounded border-green-600 hover:bg-green-600 hover:text-white">
               Services
             </button>

@@ -20,7 +20,7 @@ const ReviewField = ({ service, user }) => {
     };
 
     // post to server
-    fetch(`http://localhost:5000/reviews`, {
+    fetch(`https://service-review-server-blush.vercel.app/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

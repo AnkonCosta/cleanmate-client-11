@@ -3,7 +3,7 @@ import React from "react";
 const Blog = () => {
   document.title = " Blog";
   return (
-    <div className="bg-white max-w-screen-lg mx-auto px-5">
+    <div className="bg-white w-full md:max-w-screen-lg mx-auto px-5">
       <div className="text-center p-10 border border-green-600 mb-2 ">
         <h1 className="text-2xl font-bold mb-5 ">
           What is the difference between SQL and NoSQL?

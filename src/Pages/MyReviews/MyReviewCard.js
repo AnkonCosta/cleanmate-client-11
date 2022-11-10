@@ -6,7 +6,9 @@ const MyReviewCard = ({ review, handleDelete }) => {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${review.serviceId}`)
+    fetch(
+      `https://service-review-server-blush.vercel.app/services/${review.serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setService(data);
@@ -41,7 +43,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 <Link to={`/update/${review._id}`}>
                   <div className="badge badge-outline">Edit</div>
                 </Link>
-                {/* <UpdateModal onClick={`/reviews/${review._id}`}></UpdateModal> */}
+
                 <div
                   onClick={() => handleDelete(review._id)}
                   className="badge badge-outline"

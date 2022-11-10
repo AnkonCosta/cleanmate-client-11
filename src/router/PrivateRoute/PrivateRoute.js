@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   if (loading) {
     return (
-      <div className="max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
+      <div className="w-full md:max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
         <button className="btn loading btn-outline border border-green-600">
           loading....
         </button>

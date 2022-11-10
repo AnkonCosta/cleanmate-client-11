@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../../../src/assets/logo/clean.png";
 import Swal from "sweetalert2";
 import toast, { Toaster } from "react-hot-toast";
@@ -7,8 +7,19 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, googleLogin, updateUserProfile } =
+  const { createUser, googleLogin, updateUserProfile, loading } =
     useContext(AuthContext);
+  const navigate = useNavigate();
+  if (loading) {
+    return (
+      <div className="w-full md:max-w-screen-lg mx-auto bg-white h-96 flex justify-center items-center">
+        <button className="btn loading btn-outline border border-green-600">
+          loading....
+        </button>
+      </div>
+    );
+  }
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -23,6 +34,9 @@ const Register = () => {
         console.log(user);
         handleUpdateUserProfile(name, photoURL);
         Swal.fire("Congratulations!", "User created successfully.", "success");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +64,7 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="max-w-screen-lg  bg-white mx-auto ">
+    <div className="w-full md:max-w-screen-lg  bg-white mx-auto ">
       <section className="bg-gray-50  dark:bg-gray-900  py-12">
         <div className="flex flex-col items-center py-12  justify-center px-6  mx-auto  lg:py-0">
           <a
@@ -115,7 +129,7 @@ const Register = () => {
                     name="email"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
+                    placeholder="ankon@gmail.com"
                     required=""
                   />
                 </div>
@@ -144,7 +158,6 @@ const Register = () => {
                         aria-describedby="remember"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required
                       />
                     </div>
                     <div className="ml-3 text-sm">

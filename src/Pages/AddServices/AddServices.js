@@ -23,7 +23,7 @@ const AddServices = () => {
       price,
     };
 
-    fetch(`http://localhost:5000/services`, {
+    fetch(`https://service-review-server-blush.vercel.app/services`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const AddServices = () => {
   };
 
   return (
-    <div className="bg-white max-w-screen-lg mx-auto p-5">
+    <div className="bg-white w-full md:max-w-screen-lg mx-auto p-5">
       <div className="mt-10 sm:mt-0">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
@@ -65,6 +65,7 @@ const AddServices = () => {
                       <input
                         type="text"
                         name="title"
+                        required
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border border-green-600 rounded-md"
                       />
                     </div>
@@ -75,6 +76,7 @@ const AddServices = () => {
                       </label>
                       <input
                         type="text"
+                        required
                         name="price"
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-green-600 rounded-md"
                       />
@@ -103,6 +105,7 @@ const AddServices = () => {
                       <input
                         type="text"
                         name="photoURL"
+                        required
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-green-600 rounded-md"
                       />
                     </div>
@@ -114,6 +117,7 @@ const AddServices = () => {
                       </label>
                       <textarea
                         name="description"
+                        required
                         className="textarea border border-green-600 textarea-bordered"
                         placeholder="Description"
                       ></textarea>
@@ -125,6 +129,7 @@ const AddServices = () => {
                       </label>
                       <textarea
                         name="more"
+                        required
                         className="textarea border border-green-600 textarea-bordered"
                         placeholder="More"
                       ></textarea>
