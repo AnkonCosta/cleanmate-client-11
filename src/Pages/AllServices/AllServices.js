@@ -5,6 +5,7 @@ import ServiceCard from "../Home/Home/Services/ServiceCard";
 const AllServices = () => {
   document.title = " Services";
   const services = useLoaderData();
+  const [loader, setLoader] = useState(true);
 
   return (
     <div className="max-w-screen-lg mx-auto bg-white ">
