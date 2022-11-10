@@ -56,7 +56,6 @@ const ReviewField = ({ service, user }) => {
             Review
           </button>
         </form>
-        <Toaster position="top-left" reverseOrder={false}></Toaster>
       </div>
     </div>
   );
